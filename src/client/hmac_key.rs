@@ -7,7 +7,7 @@ use crate::{
 #[derive(Debug)]
 pub struct HmacKeyClient<'a>(pub(super) &'a super::Client);
 
-impl<'a> HmacKeyClient<'a> {
+impl HmacKeyClient<'_> {
     /// Creates a new HMAC key for the specified service account.
     ///
     /// The authenticated user must have `storage.hmacKeys.create` permission for the project in

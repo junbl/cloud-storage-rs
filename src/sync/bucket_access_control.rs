@@ -4,7 +4,7 @@ use crate::bucket_access_control::{BucketAccessControl, Entity, NewBucketAccessC
 #[derive(Debug)]
 pub struct BucketAccessControlClient<'a>(pub(super) &'a super::Client);
 
-impl<'a> BucketAccessControlClient<'a> {
+impl BucketAccessControlClient<'_> {
     /// Create a new `BucketAccessControl` using the provided `NewBucketAccessControl`, related to
     /// the `Bucket` provided by the `bucket_name` argument.
     ///

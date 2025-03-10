@@ -603,6 +603,7 @@ impl Object {
     /// * Geographical Location,
     /// * Encryption,
     /// * Storage class.
+    ///
     /// These limitations mean that for now, the rewrite and the copy methods do the same thing.
     /// ### Example
     /// ```no_run
@@ -929,9 +930,9 @@ mod ring {
         };
 
         let key_pem = pem::parse(crate::SERVICE_ACCOUNT.private_key.as_bytes())?;
-        let key = RsaKeyPair::from_pkcs8(&key_pem.contents)?;
+        let key = RsaKeyPair::from_pkcs8(key_pem.contents())?;
         let rng = SystemRandom::new();
-        let mut signature = vec![0; key.public_modulus_len()];
+        let mut signature = vec![0; key.public().modulus_len()];
         key.sign(&RSA_PKCS1_SHA256, &rng, message.as_bytes(), &mut signature)?;
         Ok(signature)
     }
@@ -1217,7 +1218,7 @@ mod tests {
         ];
         for name in &complicated_names {
             let _obj = Object::create(&bucket.name, vec![0, 1], name, "text/plain").await?;
-            let obj = Object::read(&bucket.name, &name).await.unwrap();
+            let obj = Object::read(&bucket.name, name).await.unwrap();
             let url = obj.download_url(100)?;
             let client = reqwest::Client::default();
             let download = client.head(&url).send().await?;
@@ -1522,7 +1523,7 @@ mod tests {
             ];
             for name in &complicated_names {
                 let _obj = Object::create_sync(&bucket.name, vec![0, 1], name, "text/plain")?;
-                let obj = Object::read_sync(&bucket.name, &name).unwrap();
+                let obj = Object::read_sync(&bucket.name, name).unwrap();
                 let url = obj.download_url(100)?;
                 let client = reqwest::blocking::Client::new();
                 let download = client.head(&url).send()?;

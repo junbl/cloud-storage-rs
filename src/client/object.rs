@@ -537,6 +537,7 @@ impl<'a> ObjectClient<'a> {
     /// * Geographical Location,
     /// * Encryption,
     /// * Storage class.
+    ///
     /// These limitations mean that for now, the rewrite and the copy methods do the same thing.
     /// ### Example
     /// ```no_run

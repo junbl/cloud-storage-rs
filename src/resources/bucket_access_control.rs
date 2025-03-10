@@ -12,11 +12,11 @@ pub use crate::resources::common::{Entity, ProjectTeam, Role};
 /// There are three roles that can be assigned to an entity:
 ///
 /// * READERs can get the bucket, though no acl property will be returned, and list the bucket's
-/// objects.
+///     objects.
 /// * WRITERs are READERs, and they can insert objects into the bucket and delete the bucket's
-/// objects.
+///     objects.
 /// * OWNERs are WRITERs, and they can get the acl property of a bucket, update a bucket, and call
-/// all BucketAccessControl methods on the bucket.
+///     all BucketAccessControl methods on the bucket.
 #[derive(Debug, PartialEq, serde::Serialize, serde::Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct BucketAccessControl {
@@ -45,7 +45,7 @@ pub struct BucketAccessControl {
     /// * The user liz@example.com would be user-liz@example.com.
     /// * The group example@googlegroups.com would be group-example@googlegroups.com.
     /// * To refer to all members of the G Suite for Business domain example.com, the entity would
-    /// be domain-example.com.
+    ///     be domain-example.com.
     pub entity: Entity,
     /// The access permission for the entity.
     pub role: Role,
@@ -81,7 +81,7 @@ pub struct NewBucketAccessControl {
     /// * The user liz@example.com would be user-liz@example.com.
     /// * The group example@googlegroups.com would be group-example@googlegroups.com.
     /// * To refer to all members of the G Suite for Business domain example.com, the entity would
-    /// be domain-example.com.
+    ///     be domain-example.com.
     pub entity: Entity,
     /// The access permission for the entity.
     pub role: Role,
