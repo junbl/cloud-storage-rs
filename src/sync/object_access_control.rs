@@ -7,7 +7,7 @@ use crate::{
 #[derive(Debug)]
 pub struct ObjectAccessControlClient<'a>(pub(super) &'a super::Client);
 
-impl<'a> ObjectAccessControlClient<'a> {
+impl ObjectAccessControlClient<'_> {
     /// Creates a new ACL entry on the specified `object`.
     ///
     /// ### Important

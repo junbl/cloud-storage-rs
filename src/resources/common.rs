@@ -116,7 +116,7 @@ impl serde::Serialize for Entity {
 
 struct EntityVisitor;
 
-impl<'de> serde::de::Visitor<'de> for EntityVisitor {
+impl serde::de::Visitor<'_> for EntityVisitor {
     type Value = Entity;
 
     fn expecting(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {

@@ -28,7 +28,7 @@ impl serde::Serialize for Topic {
 
 struct TopicVisitor;
 
-impl<'de> serde::de::Visitor<'de> for TopicVisitor {
+impl serde::de::Visitor<'_> for TopicVisitor {
     type Value = Topic;
 
     fn expecting(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {

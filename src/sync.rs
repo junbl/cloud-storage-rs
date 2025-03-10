@@ -28,10 +28,10 @@ impl Client {
     /// credentials from the following locations:
     ///
     /// 1. Checks for the environment variable `SERVICE_ACCOUNT`, and if it exists, reads the file
-    /// at the path specified there as a credentials json file.
-    /// 2. It attemps to do the same with the `GOOGLE_APPLICATION_CREDENTIALS` var.
+    ///     at the path specified there as a credentials json file.
+    /// 2. It attempts to do the same with the `GOOGLE_APPLICATION_CREDENTIALS` var.
     /// 3. It reads the `SERVICE_ACCOUNT_JSON` environment variable directly as json and uses that
-    /// 4.It attemps to do the same with the `GOOGLE_APPLICATION_CREDENTIALS_JSON` var.
+    /// 4. It attempts to do the same with the `GOOGLE_APPLICATION_CREDENTIALS_JSON` var.
     pub fn new() -> crate::Result<Self> {
         Ok(Self {
             runtime: crate::runtime()?,

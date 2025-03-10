@@ -28,7 +28,7 @@ pub struct DefaultObjectAccessControl {
     /// * The user liz@example.com would be user-liz@example.com.
     /// * The group example@googlegroups.com would be group-example@googlegroups.com.
     /// * To refer to all members of the G Suite for Business domain example.com, the entity would
-    /// be domain-example.com.
+    ///     be domain-example.com.
     pub entity: Entity,
     /// The access permission for the entity.
     pub role: Role,
@@ -68,7 +68,7 @@ pub struct NewDefaultObjectAccessControl {
     /// * The user liz@example.com would be user-liz@example.com.
     /// * The group example@googlegroups.com would be group-example@googlegroups.com.
     /// * To refer to all members of the G Suite for Business domain example.com, the entity would
-    /// be domain-example.com.
+    ///     be domain-example.com.
     pub entity: Entity,
     /// The access permission for the entity.
     pub role: Role,
@@ -274,10 +274,6 @@ mod tests {
     #[tokio::test]
     async fn read() -> Result<(), Box<dyn std::error::Error>> {
         let bucket = crate::read_test_bucket().await;
-        NewDefaultObjectAccessControl {
-            entity: Entity::AllUsers,
-            role: Role::Reader,
-        };
         DefaultObjectAccessControl::read(&bucket.name, &Entity::AllUsers).await?;
         Ok(())
     }

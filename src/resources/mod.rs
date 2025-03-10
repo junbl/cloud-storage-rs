@@ -22,7 +22,5 @@ pub mod object_access_control;
 /// A deserialized version of the `service-account-********.json` file. Used to authenticate
 /// requests.
 pub mod service_account;
-/// Used for parsing the `service-account-********.json` file.
-pub(crate) mod signature;
 /// The topic field of a `Notification`
 mod topic;

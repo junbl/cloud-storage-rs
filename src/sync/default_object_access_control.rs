@@ -7,7 +7,7 @@ use crate::{
 #[derive(Debug)]
 pub struct DefaultObjectAccessControlClient<'a>(pub(super) &'a super::Client);
 
-impl<'a> DefaultObjectAccessControlClient<'a> {
+impl DefaultObjectAccessControlClient<'_> {
     /// Create a new `DefaultObjectAccessControl` entry on the specified bucket.
     /// ### Important
     /// Important: This method fails with a `400 Bad Request` response for buckets with uniform
